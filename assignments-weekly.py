@@ -1,9 +1,7 @@
-# Deprecated, see assignments-weekly.py for JSON output instead of CSV. This version is left here for reference and comparison.
-
 # Dependency imports
 from datetime import datetime, timezone, timedelta, time
 import os
-import csv
+import json
 from zoneinfo import ZoneInfo
 from dateutil import parser
 from dotenv import load_dotenv
@@ -74,14 +72,13 @@ for course in courses:
 # Sort by due date (UTC)
 rows.sort(key=lambda r: r["due_date_utc"])
 
-# ---- Write CSV ----
-output_file = f"output/assignments_due_week-{now_local.strftime('%Y-%m-%d')}.csv"
-fieldnames = ["assignment_name", "course_name", "course_id", "due_date_local", "due_date_utc"]
+# ---- Write JSON ----
+output_file = f"output/assignments_due-{end_of_week_local.strftime('%Y-%m-%d')}.json"
+# fieldnames = ["assignment_name", "course_name", "course_id", "due_date_local", "due_date_utc"]
 
 with open(output_file, "w", newline="", encoding="utf-8") as f:
-    writer = csv.DictWriter(f, fieldnames=fieldnames)
-    writer.writeheader()
-    writer.writerows(rows)
+    json.dump(rows, f, indent=2)
+
 
 print(f"Wrote {len(rows)} assignments to {output_file}")
 print(f"Range: {now_local.strftime('%Y-%m-%d %I:%M %p %Z')} -> {end_of_week_local.strftime('%Y-%m-%d %I:%M %p %Z')}")

@@ -27,9 +27,9 @@ To run, you need to first set the environment variables. My program uses `dotenv
 > Do **NOT** include the forward-slash at the end. 
 
 ### Running the Program
-As of right now, I only have basic code to check the assignments due by the end of that current week, and save it as a csv file. Soon I will integrate it with Power Automate to automatically import your assignments into the Microsoft tenant of your choice. That way you can use tools like **To-Do** to monitor your tasks.
+As of right now, I only have basic code to check the assignments due by the end of that current week, and save it as a json file. Soon I will integrate it with Power Automate to automatically import your assignments into the Microsoft tenant of your choice. That way you can use tools like **To-Do** to monitor your tasks.
 
 Here is how you would run the program *after* changing your environment values in the `generate_env.py`:
 1. In the root folder where you cloned the repo, run `generate_env.py`
-2. Run the desired program *in this case, we will make a CSV of our assignments*: `assignments_weekly-csv.py`
+2. Run the desired program *in this case, we will make a CSV of our assignments*: `assignments_weekly.py`
 3. Verify nothing is missed
