@@ -55,7 +55,7 @@ for course in courses:
             due_dt_utc = parser.isoparse(due_at).astimezone(timezone.utc)
 
             if start_utc <= due_dt_utc <= end_utc:
-                due_local_str = due_dt_utc.astimezone(LOCAL_TZ).strftime("%Y-%m-%d %I:%M %p %Z")
+                due_local_str = due_dt_utc.astimezone(LOCAL_TZ).strftime("%Y-%m-%dT%H:%M:%S")
 
                 rows.append({
                     "assignment_name": getattr(a, "name", ""),
