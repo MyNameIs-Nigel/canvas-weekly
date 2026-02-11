@@ -1,0 +1,5 @@
+# Avoid committing environment variables
+.env
+
+# Ignore output files
+/output
