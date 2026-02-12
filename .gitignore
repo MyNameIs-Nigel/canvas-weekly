@@ -3,3 +3,6 @@
 
 # Ignore output files
 /output
+
+/__pycache__
+
